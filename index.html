@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="style.css"> <!-- Linking external CSS -->
+</head>
+
+<body>
+  <div class="form-container">
+    <form id="signupForm" onsubmit="return validateForm()" action="http://google.com" method=""> <!-- Added JavaScript Validation -->
+      <fieldset>
+        <h1>Create Account</h1>
+        
+        <label for="name">Your Name</label><br>
+        <input type="text" id="name" name="name" placeholder="First and Last Name" required>
+        <br><br>
+        <label for="email">Mobile Number or Email</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        <br><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+        <small>Password must be at least 6 characters</small>
+        <br><br>
+        <label for="repassword">Re-enter Password</label><br>
+        <input type="password" id="repassword" name="repassword" placeholder="Re-enter Password" required><br>
+        <small>Password must be at least 6 characters</small>
+        <br><br>
+        <button type="submit">Continue</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var repassword = document.getElementById("repassword").value;
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      if (password !== repassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
